@@ -2,10 +2,19 @@ import React, { Component, useState } from 'react'
 
 class Image extends Component {
 
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     styleObj: {}
+  //   };
+  // }
+
   handleClick(e) {
     if (this.props.arrange.isCenter) {
+      console.log(111);
       this.props.reverse()
     } else {
+      console.log(222)
       this.props.center()
     }
 
@@ -15,7 +24,8 @@ class Image extends Component {
   render() {
     let styleObj = {}
     if (this.props.arrange.pos) {
-      styleObj = this.props.arrange.pos
+      console.log('this.props.arrange.pos:', this.props.arrange.pos);
+      styleObj = this.props.arrange.pos;
     }
     // console.log('this.props.arrange.rotate:', this.props.arrange.rotate);
     // if (this.props.arrange.rotate) {
@@ -26,6 +36,7 @@ class Image extends Component {
     // }
     let figureClassName = "img-figure"
     figureClassName += this.props.arrange.isReverse ? ' is-reverse' : ''
+    // this.setState({ styleObj: 1 });
 
     return (
       <figure
