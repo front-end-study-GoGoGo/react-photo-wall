@@ -17,7 +17,7 @@ class Image extends Component {
     if (this.props.arrange.pos) {
       styleObj = this.props.arrange.pos
     }
-    console.log('this.props.arrange.rotate:', this.props.arrange.rotate);
+    // console.log('this.props.arrange.rotate:', this.props.arrange.rotate);
     // if (this.props.arrange.rotate) {
     //   styleObj["transform"] = `rotate(${this.props.arrange.rotate}deg)`
     // }
