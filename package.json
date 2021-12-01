@@ -1,7 +1,7 @@
 {
   "name": "react-photo-wall",
   "version": "0.1.0",
-  "homepage": "./",
+  "homepage": "https://front-end-study-gogogo.github.io/react-photo-wall",
   "dependencies": {
     "@craco/craco": "^6.4.2",
     "@testing-library/jest-dom": "^5.11.4",
