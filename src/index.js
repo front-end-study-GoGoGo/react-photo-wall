@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Gallery from './components/gallery/gallery'; // 照片墙
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <Gallery />
   </React.StrictMode>,
   document.getElementById('root')
 );
