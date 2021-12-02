@@ -23,7 +23,8 @@
         "filename": "5.jpg",
         "title": "The fifth picture",
         "desc": "This is a picture"
-    },
+    }
+    ,
     {
         "filename": "6.jpg",
         "title": "The sixth picture",

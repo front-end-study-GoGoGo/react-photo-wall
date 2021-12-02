@@ -24,16 +24,15 @@ class Image extends Component {
   render() {
     let styleObj = {}
     if (this.props.arrange.pos) {
-      console.log('this.props.arrange.pos:', this.props.arrange.pos);
-      styleObj = this.props.arrange.pos;
+      styleObj = { ...this.props.arrange.pos };
+      // styleObj = this.props.arrange.pos; // 这句会报错，但是上面那个解构语句却不会报错
     }
-    // console.log('this.props.arrange.rotate:', this.props.arrange.rotate);
-    // if (this.props.arrange.rotate) {
-    //   styleObj["transform"] = `rotate(${this.props.arrange.rotate}deg)`
-    // }
-    // if (this.props.arrange.isCenter) {
-    //   styleObj['zIndex'] = 11;
-    // }
+    if (this.props.arrange.rotate) {
+      styleObj["transform"] = `rotate(${this.props.arrange.rotate}deg)`
+    }
+    if (this.props.arrange.isCenter) {
+      styleObj['zIndex'] = 11;
+    }
     let figureClassName = "img-figure"
     figureClassName += this.props.arrange.isReverse ? ' is-reverse' : ''
     // this.setState({ styleObj: 1 });
@@ -44,7 +43,7 @@ class Image extends Component {
         style={styleObj}
         onClick={this.handleClick.bind(this)}
       >
-        <span>333332</span>
+        {/* <span>333332</span> */}
         <div className="front">
           <img src={this.props.data.url} alt={this.props.data.title} />
           <h3 className="img-title">{this.props.data.title}</h3>
