@@ -44,6 +44,7 @@ class Image extends Component {
         style={styleObj}
         onClick={this.handleClick.bind(this)}
       >
+        <span>333332</span>
         <div className="front">
           <img src={this.props.data.url} alt={this.props.data.title} />
           <h3 className="img-title">{this.props.data.title}</h3>
