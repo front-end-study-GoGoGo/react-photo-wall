@@ -48,6 +48,7 @@ class Image extends Component {
           <img src={this.props.data.url} alt={this.props.data.title} />
           <h3 className="img-title">{this.props.data.title}</h3>
         </div>
+        {/* 图片背面的内容 */}
         <div className="back" onClick={this.handleClick.bind(this)}>
           <p>
             {this.props.data.desc}

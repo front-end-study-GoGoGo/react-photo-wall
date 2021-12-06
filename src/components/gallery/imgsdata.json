@@ -74,10 +74,23 @@
         "filename": "15.jpg",
         "title": "The 15th picture",
         "desc": "This is a picture"
-    },
+    }
+    ,
     {
         "filename": "16.jpg",
         "title": "The 16th picture",
+        "desc": "This is a picture"
+    }
+    ,
+    {
+        "filename": "17.jpg",
+        "title": "The 17th picture",
+        "desc": "This is a picture"
+    }
+    ,
+    {
+        "filename": "18.jpg",
+        "title": "The 18th picture",
         "desc": "This is a picture"
     }
 ]
