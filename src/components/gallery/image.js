@@ -42,17 +42,21 @@ class Image extends Component {
         className={figureClassName} id={this.props.id}
         style={styleObj}
         onClick={this.handleClick.bind(this)}
+      // onClick={() => { console.log('点击了一次') }}
       >
         {/* <span>333332</span> */}
         <div className="front">
           <img src={this.props.data.url} alt={this.props.data.title} />
           <h3 className="img-title">{this.props.data.title}</h3>
         </div>
-        {/* 图片背面的内容 */}
-        <div className="back" onClick={this.handleClick.bind(this)}>
-          <p>
-            {this.props.data.desc}
-          </p>
+        {/* 图片背面的内容  修改为放大图片*/}
+        <div
+          className="back"
+          // onClick={() => { console.log('点击了一次') }}
+          onClick={this.handleClick.bind(this)}
+        >
+          <img src={this.props.data.url} alt={this.props.data.title} style={{ width: '150%', height: '150%' }} />
+          <p>111111111</p>
         </div>
       </figure>
     )

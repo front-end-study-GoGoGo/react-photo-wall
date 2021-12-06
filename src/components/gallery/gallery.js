@@ -79,14 +79,27 @@ class Gallery extends Component {
   }
 
   /**
-   * 翻转图片
-   * @param  index 需要翻转图片的 index 值 
+   * 翻转图片  -- 2021.12.6功能更改，改成 放大图片 --
+   * @param  index 需要翻转图片的 index 值  
    * 将该图片 isReverse 取反后触发 setState 进行重新渲染
    * @return 返回一个待执行函数
    */
   reverseFigure(index) {
+    // return function () {
+    //   let figureArrangeArr = this.state.figureArrangeArr
+    //   figureArrangeArr[index].isReverse = !figureArrangeArr[index].isReverse
+    //   this.setState({
+    //     figureArrangeArr: figureArrangeArr
+    //   })
+    // }.bind(this)
+
+    /**
+     * 放大操作 
+     * 思路： 使用全局dom 置顶显示
+     */
     return function () {
       let figureArrangeArr = this.state.figureArrangeArr
+      console.log('---', figureArrangeArr[index])
       figureArrangeArr[index].isReverse = !figureArrangeArr[index].isReverse
       this.setState({
         figureArrangeArr: figureArrangeArr
