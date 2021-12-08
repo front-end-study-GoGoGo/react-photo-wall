@@ -4,6 +4,7 @@ import ImgsData from './imgsdata.json'
 import Image from './image'
 import Controller from './controller'
 import './gallery.less'
+import { Image as AntdImage } from 'antd';
 
 // 获取图片数组相关信息，增加 URL
 let ImgInfos = ImgsData.map((img) => {
