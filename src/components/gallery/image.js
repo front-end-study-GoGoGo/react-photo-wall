@@ -49,7 +49,8 @@ class Image extends Component {
         // onClick={() => { console.log('点击了一次') }}
         >
           <div className="front">
-            <img src={this.props.data.url} alt={this.props.data.title} />
+            {/* <img src={this.props.data.url} alt={this.props.data.title} />*/}
+            <AntdImage src={this.props.data.url} alt={this.props.data.title}></AntdImage>
             <h3 className="img-title">{this.props.data.title}</h3>
           </div>
         </figure>

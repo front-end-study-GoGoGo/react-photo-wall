@@ -4,7 +4,7 @@ import ImgsData from './imgsdata.json'
 import Image from './image'
 import Controller from './controller'
 import './gallery.less'
-import { Image as AntdImage } from 'antd';
+import { Image as AntdImage, Button } from 'antd';
 
 // 获取图片数组相关信息，增加 URL
 let ImgInfos = ImgsData.map((img) => {
@@ -86,13 +86,6 @@ class Gallery extends Component {
    * @return 返回一个待执行函数
    */
   reverseFigure(index) {
-    // return function () {
-    //   let figureArrangeArr = this.state.figureArrangeArr
-    //   figureArrangeArr[index].isReverse = !figureArrangeArr[index].isReverse
-    //   this.setState({
-    //     figureArrangeArr: figureArrangeArr
-    //   })
-    // }.bind(this)
 
     /**
      * 放大操作 
@@ -100,7 +93,7 @@ class Gallery extends Component {
      */
     return function () {
       let figureArrangeArr = this.state.figureArrangeArr
-      console.log('---', figureArrangeArr[index])
+      // console.log('---', figureArrangeArr[index])
       figureArrangeArr[index].isReverse = !figureArrangeArr[index].isReverse
       this.setState({
         figureArrangeArr: figureArrangeArr
@@ -225,14 +218,16 @@ class Gallery extends Component {
         center={this.putFigureCenter(index)} />)
     }.bind(this))
     return (
-      <div className="stage" id="stage">
-        <div className="img-container">
-          {imgFigures}
+      <>
+        <div className="stage" id="stage">
+          <div className="img-container">
+            {imgFigures}
+          </div>
+          <nav className="img-nav">
+            {navigators}
+          </nav>
         </div>
-        <nav className="img-nav">
-          {navigators}
-        </nav>
-      </div>
+      </>
     )
   }
 }
