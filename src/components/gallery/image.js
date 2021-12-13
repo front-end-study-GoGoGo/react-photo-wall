@@ -14,10 +14,10 @@ class Image extends Component {
 
   handleClick(e) {
     if (this.props.arrange.isCenter) {
-      console.log(111);
+      // console.log(111);
       // this.props.reverse()
     } else {
-      console.log(222)
+      // console.log(222)
       this.props.center()
     }
 
@@ -49,8 +49,7 @@ class Image extends Component {
         // onClick={() => { console.log('点击了一次') }}
         >
           <div className="front">
-            {/* <img src={this.props.data.url} alt={this.props.data.title} />*/}
-            <AntdImage src={this.props.data.url} alt={this.props.data.title}></AntdImage>
+            <AntdImage src={this.props.data.url} alt={this.props.data.title} preview={this.props.arrange.isCenter ? true : false}></AntdImage>
             <h3 className="img-title">{this.props.data.title}</h3>
           </div>
         </figure>

@@ -14,15 +14,14 @@ let ImgInfos = ImgsData.map((img) => {
   )
 })
 
-
 let getRandom = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min)
 }
+
 // 获取-30~30的随机数字
 let getRandomDeg = () => {
   return ((Math.random() > 0.5 ? '' : '-') + Math.ceil(Math.random() * 30))
 }
-
 
 /**
  * 整个 stage 分为左分区、右分区、上分区以及中间展示的 figure
@@ -30,6 +29,7 @@ let getRandomDeg = () => {
  * 上分区另设自己的取值范围
  */
 class Gallery extends Component {
+  
   constructor(props) {
     super(props)
     //初始化 figure 的位置
@@ -54,9 +54,8 @@ class Gallery extends Component {
     this.state = {
       //  存储每个 figure 的位置
       figureArrangeArr: [
-        /*
         {
-          pos:{
+          pos: {
             left: 0,
             top: 0
           },
@@ -64,7 +63,6 @@ class Gallery extends Component {
           isReverse: false, // 是否翻转
           isCenter: false // 是否居中
         }
-        */
       ]
     }
   }
@@ -100,6 +98,7 @@ class Gallery extends Component {
       })
     }.bind(this)
   }
+
   // 重新排布图片
   reArrangFigure(centerIndex) {
     let constantPos = this.constantPos,
@@ -193,6 +192,7 @@ class Gallery extends Component {
     }
     this.reArrangFigure(0)
   }
+
   render() {
     let navigators = []
     let imgFigures = []
@@ -208,14 +208,22 @@ class Gallery extends Component {
           isCenter: false
         }
       }
-      imgFigures.push(<Image data={imgInfo} key={index} id={"figure" + index}
-        arrange={this.state.figureArrangeArr[index]}
-        reverse={this.reverseFigure(index)}
-        center={this.putFigureCenter(index)} />)
-      navigators.push(<Controller key={index}
-        arrange={this.state.figureArrangeArr[index]}
-        reverse={this.reverseFigure(index)}
-        center={this.putFigureCenter(index)} />)
+      imgFigures.push(
+        <Image
+          data={imgInfo} key={index} id={"figure" + index}
+          arrange={this.state.figureArrangeArr[index]}
+          reverse={this.reverseFigure(index)}
+          center={this.putFigureCenter(index)}
+        />
+      )
+      navigators.push(
+        <Controller
+          key={index}
+          arrange={this.state.figureArrangeArr[index]}
+          reverse={this.reverseFigure(index)}
+          center={this.putFigureCenter(index)}
+        />
+      )
     }.bind(this))
     return (
       <>
