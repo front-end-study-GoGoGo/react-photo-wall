@@ -10,7 +10,8 @@ import { Image as AntdImage, Button } from 'antd';
 let ImgInfos = ImgsData.map((img) => {
   return Object.assign({},
     img,
-    { url: require(`../../../src/imgs/${img.filename}`).default }
+    // { url: require(`../../../src/imgs/${img.filename}`).default }
+    { url: img.filename }
   )
 })
 
