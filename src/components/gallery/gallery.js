@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import ReactDom from 'react-dom'
 import ImgsData from './imgsdata.json'
 import Image from './image'
@@ -23,13 +23,14 @@ let getRandomDeg = () => {
   return ((Math.random() > 0.5 ? '' : '-') + Math.ceil(Math.random() * 30))
 }
 
+
 /**
  * 整个 stage 分为左分区、右分区、上分区以及中间展示的 figure
  * 左右分区的 y 方向取值范围相同，因此设置不同的水平方向取值返回
  * 上分区另设自己的取值范围
  */
 class Gallery extends Component {
-  
+
   constructor(props) {
     super(props)
     //初始化 figure 的位置
@@ -63,15 +64,18 @@ class Gallery extends Component {
           isReverse: false, // 是否翻转
           isCenter: false // 是否居中
         }
-      ]
+      ],
+      nowClickedImageIndex: 0, // 当前被选中的图片id
     }
   }
+
   /**
    * 图片居中
    * @param 需要居中图片的 index 值
    * @return 返回一个待执行函数
    */
   putFigureCenter(index) {
+    // console.log('---', index);
     return function () {
       this.reArrangFigure(index)
     }.bind(this)
@@ -84,7 +88,6 @@ class Gallery extends Component {
    * @return 返回一个待执行函数
    */
   reverseFigure(index) {
-
     /**
      * 放大操作 
      * 思路： 使用全局dom 置顶显示
@@ -160,6 +163,40 @@ class Gallery extends Component {
     })
   }
 
+  // 记录当前被选中图片的index
+  recordImgIndex(index) {
+
+    return function () {
+      this.setState({
+        nowClickedImageIndex: index,
+      });
+    }.bind(this)
+  }
+
+  // 跳转上一张图片
+  jumpOnImg(index) {
+    let nowIndex = index === 0 ? 0 : index - 1;
+    if (index !== 0) {
+      this.setState({
+        nowClickedImageIndex: nowIndex,
+      })
+      this.recordImgIndex(nowIndex);
+      this.reArrangFigure(nowIndex);
+    }
+  }
+
+  // 跳转下一张图片
+  jumpNextImg(index) {
+    let nowIndex = index === ImgsData.length - 1 ? ImgsData.length - 1 : index + 1;
+    if (index !== ImgsData.length - 1) {
+      this.setState({
+        nowClickedImageIndex: nowIndex,
+      })
+      this.recordImgIndex(nowIndex);
+      this.reArrangFigure(nowIndex);
+    }
+  }
+
   // 在组件初次渲染之后触发，计算figure位置范围
   componentDidMount() {
     // 获取 stage 的宽高
@@ -190,7 +227,7 @@ class Gallery extends Component {
         topSectionY: [-halfFigureHeight, halfStageHeight - 3 * halfFigureHeight]
       }
     }
-    this.reArrangFigure(0)
+    this.reArrangFigure(this.state.nowClickedImageIndex)
   }
 
   render() {
@@ -214,6 +251,7 @@ class Gallery extends Component {
           arrange={this.state.figureArrangeArr[index]}
           reverse={this.reverseFigure(index)}
           center={this.putFigureCenter(index)}
+          record={this.recordImgIndex(index)}
         />
       )
       navigators.push(
@@ -222,6 +260,7 @@ class Gallery extends Component {
           arrange={this.state.figureArrangeArr[index]}
           reverse={this.reverseFigure(index)}
           center={this.putFigureCenter(index)}
+          record={this.recordImgIndex(index)}
         />
       )
     }.bind(this))
@@ -231,9 +270,15 @@ class Gallery extends Component {
           <div className="img-container">
             {imgFigures}
           </div>
-          <nav className="img-nav">
-            {navigators}
-          </nav>
+          <div className='img-nav'>
+            {/* <div> */}
+            <Button type="primary" ghost onClick={() => { this.jumpOnImg(this.state.nowClickedImageIndex) }}>上一张</Button>
+            <nav className="img-nav-content">
+              {navigators}
+            </nav>
+            <Button type="primary" ghost onClick={() => { this.jumpNextImg(this.state.nowClickedImageIndex) }}>下一张</Button>
+            {/* </div> */}
+          </div>
         </div>
       </>
     )

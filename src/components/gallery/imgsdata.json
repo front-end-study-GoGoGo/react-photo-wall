@@ -1,96 +1,78 @@
 [
     {
         "filename": "1.jpg",
-        "title": "The first picture",
-        "desc": "This is a picture"
+        "title": "The first picture"
     },
     {
         "filename": "2.jpg",
-        "title": "The second picture",
-        "desc": "This is a picture"
+        "title": "The second picture"
     },
     {
         "filename": "3.jpg",
-        "title": "The third picture",
-        "desc": "This is a picture"
+        "title": "The third picture"
     },
     {
         "filename": "4.jpg",
-        "title": "The fourth picture",
-        "desc": "This is a picture"
+        "title": "The fourth picture"
     },
     {
         "filename": "5.jpg",
-        "title": "The fifth picture",
-        "desc": "This is a picture"
+        "title": "The fifth picture"
     }
     ,
     {
         "filename": "6.jpg",
-        "title": "The sixth picture",
-        "desc": "This is a picture"
+        "title": "The sixth picture"
     },
     {
         "filename": "7.jpg",
-        "title": "The seventh picture",
-        "desc": "This is a picture"
+        "title": "The seventh picture"
     },
     {
         "filename": "8.jpg",
-        "title": "The eighth picture",
-        "desc": "This is a picture"
+        "title": "The eighth picture"
     },
     {
         "filename": "9.jpg",
-        "title": "The ninth picture",
-        "desc": "This is a picture"
+        "title": "The ninth picture"
     },
     {
         "filename": "10.jpg",
-        "title": "The tenth picture",
-        "desc": "This is a picture"
+        "title": "The tenth picture"
     },
     {
         "filename": "11.jpg",
-        "title": "The 11th picture",
-        "desc": "This is a picture"
+        "title": "The 11th picture"
     },
     {
         "filename": "12.jpg",
-        "title": "The 12th picture",
-        "desc": "This is a picture"
+        "title": "The 12th picture"
     },
     {
         "filename": "13.jpg",
-        "title": "The 13th picture",
-        "desc": "This is a picture"
+        "title": "The 13th picture"
     },
     {
         "filename": "14.jpg",
-        "title": "The 14th picture",
-        "desc": "This is a picture"
+        "title": "The 14th picture"
     },
     {
         "filename": "15.jpg",
-        "title": "The 15th picture",
-        "desc": "This is a picture"
+        "title": "The 15th picture"
     }
     ,
     {
         "filename": "16.jpg",
-        "title": "The 16th picture",
-        "desc": "This is a picture"
+        "title": "The 16th picture"
     }
     ,
     {
         "filename": "17.jpg",
-        "title": "The 17th picture",
-        "desc": "This is a picture"
+        "title": "The 17th picture"
     }
     ,
     {
         "filename": "18.jpg",
-        "title": "The 18th picture",
-        "desc": "This is a picture"
+        "title": "The 18th picture"
     }
 ]

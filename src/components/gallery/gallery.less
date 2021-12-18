@@ -96,37 +96,61 @@ h3{
 	transform: rotateY(180deg);
   // display: none;
 }
-.img-nav{
-  position: absolute;
-  left: 0;
-  bottom: 30px;
-  text-align: center;
-  z-index: 100;
-  width: 100%;
-  .controller{
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: #999;
-    border-radius: 50%;
-    transform: scale(.5);
-    transition: transform .6s ease-in-out,background-color .3s ;
-    vertical-align: middle;
-    cursor: pointer;
-    &.is-center{
-      transform: scale(1);
-       &:after{
-        font-family: "iconfont";
-        content: "\e60f";
-        line-height: 30px;
-        color: #fff;
-        webkit-font-smoothing: antialiased;
-      }
-      &.is-reverse{
-        background-color: #555;
-        transform: rotateY(180deg);
-      }
-    }
 
+.img-nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  bottom: 50px;
+  z-index: 100;
+
+  button:first-of-type{
+    position: absolute;
+    left: 20%;
   }
+
+  button:last-of-type{
+    position: absolute;
+    right: 20%;
+  }
+
+  .img-nav-content{
+    position: absolute;
+    display: inline-block;
+    width: 51%;
+    .controller{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: #999;
+      border-radius: 50%;
+      transform: scale(.5);
+      transition: transform .6s ease-in-out,background-color .3s ;
+      vertical-align: middle;
+      cursor: pointer;
+      &.is-center{
+        transform: scale(1);
+         &:after{
+          position: absolute;
+          font-family: "iconfont";
+          content:url('../../imgs/icons/smile.png');
+          transform: translate(-49.8%, -39.5%) scale(0.25);
+          line-height: 30px;
+          color: #fff;
+          webkit-font-smoothing: antialiased;
+        }
+        &.is-reverse{
+          background-color: #555;
+          transform: rotateY(180deg);
+        }
+      }
+  
+    }
+  }
+
 }
+

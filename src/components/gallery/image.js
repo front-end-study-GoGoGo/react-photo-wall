@@ -18,7 +18,8 @@ class Image extends Component {
       // this.props.reverse()
     } else {
       // console.log(222)
-      this.props.center()
+      this.props.center();
+      this.props.record();
     }
 
     e.preventDefault()
