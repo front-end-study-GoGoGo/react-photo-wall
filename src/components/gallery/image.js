@@ -25,16 +25,7 @@ class Image extends Component {
     e.preventDefault()
   }
 
-  componentWillMount() {
-    console.log('componentWillMount---')
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate---');
-  }
-
   render() {
-    console.log('render---')
     let styleObj = {}
     if (this.props.arrange.pos) {
       styleObj = { ...this.props.arrange.pos };
