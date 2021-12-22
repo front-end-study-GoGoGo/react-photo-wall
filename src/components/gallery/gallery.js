@@ -200,6 +200,9 @@ class Gallery extends Component {
 
   // 在组件初次渲染之后触发，计算figure位置范围
   componentDidMount() {
+    console.log('子组件渲染完毕了。。');
+    let imgLoadingState = document.querySelectorAll("img");
+    console.log('====:', imgLoadingState);
     // 获取 stage 的宽高
     let stage = document.getElementById('stage'),
       stageWidth = stage.scrollWidth,

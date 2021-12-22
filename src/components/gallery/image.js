@@ -25,7 +25,16 @@ class Image extends Component {
     e.preventDefault()
   }
 
+  componentWillMount() {
+    console.log('componentWillMount---')
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate---');
+  }
+
   render() {
+    console.log('render---')
     let styleObj = {}
     if (this.props.arrange.pos) {
       styleObj = { ...this.props.arrange.pos };
@@ -44,14 +53,29 @@ class Image extends Component {
     return (
       <>
         <figure
-          className={figureClassName} id={this.props.id}
+          className={figureClassName}
+          id={this.props.id}
           style={styleObj}
           onClick={this.handleClick.bind(this)}
         // onClick={() => { console.log('点击了一次') }}
         >
-          <div className="front">
-            <AntdImage src={this.props.data.url} alt={this.props.data.title} preview={this.props.arrange.isCenter ? true : false}></AntdImage>
-            <h3 className="img-title">{this.props.data.title}</h3>
+          <div className="front" style={this.props.arrange.isCenter ? { top: '-125px' } : {}}>
+            <AntdImage
+              style={this.props.arrange.isCenter ? { width: '450px' } : {}}
+              src={this.props.data.url}
+              alt={this.props.data.title}
+              preview={this.props.arrange.isCenter ? true : false}
+              placeholder={
+                <AntdImage
+                  preview={false}
+                  src={require('../../imgs/loading-2.jpeg').default}
+                  style={this.props.arrange.isCenter ? { width: '450px' } : {}}
+                >
+                </AntdImage>
+              }
+            >
+            </AntdImage>
+            {this.props.arrange.isCenter ? <h3 className="img-title">{this.props.data.title}</h3> : ''}
           </div>
         </figure>
       </>
