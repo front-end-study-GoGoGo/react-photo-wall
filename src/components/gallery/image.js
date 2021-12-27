@@ -25,6 +25,10 @@ class Image extends Component {
     e.preventDefault()
   }
 
+  componentDidMount() {
+    // console.log("子组件渲染完毕");
+  }
+
   render() {
     let styleObj = {}
     if (this.props.arrange.pos) {

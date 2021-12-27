@@ -4,7 +4,7 @@ import ImgsData from './imgsdata.json'
 import Image from './image'
 import Controller from './controller'
 import './gallery.less'
-import { Image as AntdImage, Button } from 'antd';
+import { Button, message } from 'antd';
 
 // 获取图片数组相关信息，增加 URL
 let ImgInfos = ImgsData.map((img) => {
@@ -67,6 +67,7 @@ class Gallery extends Component {
         }
       ],
       nowClickedImageIndex: 0, // 当前被选中的图片id
+      loadingKey: 'loadingKey', // 图片加载提示key
     }
   }
 
@@ -228,7 +229,28 @@ class Gallery extends Component {
         topSectionY: [-halfFigureHeight, halfStageHeight - 3 * halfFigureHeight]
       }
     }
-    this.reArrangFigure(this.state.nowClickedImageIndex)
+    this.reArrangFigure(this.state.nowClickedImageIndex);
+    // console.log("父组件渲染完毕");
+
+    // 检查图片是否还在加载中
+    let imgsFlag = 0;
+    let imgDom = document.querySelectorAll('img.ant-image-img');
+    message.loading({ content: '图片正在加载中，请稍后呀...', key: this.state.loadingKey, duration: 0 })
+    let imgsLoading = setInterval(() => {
+      imgDom = document.querySelectorAll('img.ant-image-img'); // 找到所有antd Image组件的图片dom结点
+      imgsFlag = 0;
+      for (let i = 0; i < imgDom.length; i++) {
+        if (imgDom[i].complete) {
+          imgsFlag++;
+        }
+      }
+      console.log("===:", imgsFlag, imgDom.length);
+      if (imgsFlag >= imgDom.length) {
+        console.log("图片加载完了", imgsFlag);
+        clearInterval(imgsLoading);
+        message.success({ content: '图片加载完毕!', key: this.state.loadingKey, duration: 2 });
+      }
+    }, 1000);
   }
 
   render() {
