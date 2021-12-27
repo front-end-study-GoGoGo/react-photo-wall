@@ -235,7 +235,7 @@ class Gallery extends Component {
     // 检查图片是否还在加载中
     let imgsFlag = 0;
     let imgDom = document.querySelectorAll('img.ant-image-img');
-    message.loading({ content: '图片正在加载中，请稍后呀...', key: this.state.loadingKey, duration: 0 })
+    message.loading({ content: '图片正在加载中，请稍后呀......', key: this.state.loadingKey, duration: 0 })
     let imgsLoading = setInterval(() => {
       imgDom = document.querySelectorAll('img.ant-image-img'); // 找到所有antd Image组件的图片dom结点
       imgsFlag = 0;
