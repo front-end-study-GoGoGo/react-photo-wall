@@ -294,13 +294,11 @@ class Gallery extends Component {
             {imgFigures}
           </div>
           <div className='img-nav'>
-            {/* <div> */}
             <Button type="primary" ghost onClick={() => { this.jumpOnImg(this.state.nowClickedImageIndex) }}>上一张</Button>
             <nav className="img-nav-content">
               {navigators}
             </nav>
             <Button type="primary" ghost onClick={() => { this.jumpNextImg(this.state.nowClickedImageIndex) }}>下一张</Button>
-            {/* </div> */}
           </div>
         </div>
       </>
